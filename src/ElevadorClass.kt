@@ -7,6 +7,7 @@ class ElevadorClass(var piso: Int, var estado:tipoEstado) {
     var pis : Int = 0
     var opt: Int = 0
 
+
     fun funcionElevador(){
         if(estado == tipoEstado.DETENIDO ){
                 detener()
@@ -23,9 +24,14 @@ class ElevadorClass(var piso: Int, var estado:tipoEstado) {
         println("Estado del elevador DETENIDO, en el piso $piso")
 
         val eleva: Int?
+
         println("Ingrese al piso que desea ir: ")
         eleva = readLine()!!.toInt()
         pis=eleva
+
+        if (piso == 1){
+            println("Estado del elevador DETENIDO, en el Lobby")
+        }
 
         if (piso > eleva ){
             estado= tipoEstado.ABAJO
@@ -44,8 +50,8 @@ class ElevadorClass(var piso: Int, var estado:tipoEstado) {
             piso++
             Thread.sleep(1000)
             println("Estado del elevador ARRIBA, piso $piso")
-
         }
+        println("El elevador ha llegado al piso indicado")
         estado=tipoEstado.DETENIDO
     }
     fun bajar(){
@@ -55,6 +61,7 @@ class ElevadorClass(var piso: Int, var estado:tipoEstado) {
             Thread.sleep(1000)
             println("Estado del elevador ABAJO, piso $piso")
         }
+        println("El elevador ha llegado al piso indicado")
     }
 
 
