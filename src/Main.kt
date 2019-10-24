@@ -1,8 +1,11 @@
-fun main(){
+fun main() {
+    val Elevadorcito = ElevadorClass(1,tipoEstado.DETENIDO)
+    Elevadorcito.funcionElevador()
 
-    val LugarPiso: String?
-    println("Ingrese el piso al que desea ir:")
-    LugarPiso = readLine().toString()
-
-    var Eleva: ElevadorClass = ElevadorClass(piso = LugarPiso)
+    var opt : Int
+    do{
+        println("\n\nDesea seguir usando el Elevador?\n1.Si\n2.No")
+        opt = readLine()!!.toInt()
+        Elevadorcito.funcionElevador()
+    }while (opt ==1)
 }

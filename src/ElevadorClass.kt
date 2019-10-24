@@ -2,13 +2,14 @@ enum class tipoEstado {
     DETENIDO, ARRIBA, ABAJO
 }
 
-class ElevadorClass(var piso: Int, private var estado:tipoEstado) {
+class ElevadorClass(var piso: Int, var estado:tipoEstado) {
 
     var pis : Int = 0
+    var opt: Int = 0
 
     fun funcionElevador(){
         if(estado == tipoEstado.DETENIDO ){
-            detener()
+                detener()
         }
         if(estado == tipoEstado.ARRIBA){
             subir()
@@ -18,6 +19,7 @@ class ElevadorClass(var piso: Int, private var estado:tipoEstado) {
         }
     }
     fun detener(){
+
         println("Estado del elevador DETENIDO, en el piso $piso")
 
         val eleva: Int?
@@ -25,14 +27,14 @@ class ElevadorClass(var piso: Int, private var estado:tipoEstado) {
         eleva = readLine()!!.toInt()
         pis=eleva
 
-        if (pis > eleva ){
+        if (piso > eleva ){
             estado= tipoEstado.ABAJO
         }
-        if (pis < eleva){
+        if (piso < eleva){
             estado = tipoEstado.ARRIBA
         }
-        if(pis == eleva){
-            println("")
+        if(piso == eleva){
+            println("Estado elevador DETENIDO, Se encuentra en el piso al cual quiere moverse")
         }
     }
     fun subir(){
